@@ -5,8 +5,9 @@
 * Icinga Web 2 (&gt;= 2.10.3)
 * Icinga Director (&gt;= 1.9.1)
 * PHP (&gt;= 7.3)
+* php-json
 
-The Icinga Web 2 `monitoring` module needs to be configured and enabled.
+The Icinga Web 2 `monitoring` or `icingadb` module needs to be configured and enabled.
 
 ## Installation from .tar.gz <a id="module-lshw-installation-manual"></a>
 
@@ -23,5 +24,5 @@ icingacli module enable lshw
 
 Or go to your Icinga Web 2 frontend, choose `Configuration` -&gt; `Modules`, chose the `lshw` module and `enable` it.
 
-It might afterwards be necessary to refresh your web browser to be sure that
+It might afterward be necessary to refresh your web browser to be sure that
 newly provided styling is loaded.

@@ -2,12 +2,13 @@
 
 ## Module Usage  <a id="module-lshw-usage-director"></a>
 
-![image_e](img/image_e.png)
 
-Describe the usage...
+The following commands are available for this speical rendering:
+* lshw
+* lshw-win
+* lshw-unpriviledged
 
-## Monitoring Host <a id="module-lshw-usage-monitoring"></a>
+The rendering will look like this:
 
-![image_f](img/image_f.png)
+![usage](img/usage.png)
 
-Describe the usage...

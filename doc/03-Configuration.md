@@ -1,26 +1,25 @@
 # Configuration <a id="module-lshw-configuration"></a>
 
-## Module Configuration  <a id="module-lshw-configuration-module"></a>
+## System Configuration  <a id="module-lshw-configuration-module-system"></a>
 
-![image_a](img/image_a.png)
+If you want all the systems details for linux you need run lshw as root.
 
+Add the following line to your sudoes file:
+```
+%nagios ALL=(ALL) NOPASSWD: /usr/bin/lshw -json
+```
+If you are using an enterprise linux like redhat you user might me icinga instead of nagios.
 
-| Option                | Required | Description                              |
-| --------------------- | -------- | -----------------------------------      |
-| Name                  | **yes**  | Name of something                        |
-| xxxx                  | **yes**  | Description of xxxx.                     |
-| yyyy                  | no       | Description of yyyy                      |
+You have to configure this on agents too if you want to execute lshw with root permissions on an agent.
 
-## Reference Urls <a id="module-lshw-configuration-reference"></a>
+## Director Configuration  <a id="module-lshw-configuration-module-director"></a>
 
-![image_b](img/image_b.png)
+![director](img/director.png)
 
-Some config references...
+The module comes with all the command definitons for Icinga Director.
 
-## Director Configuration  <a id="module-lshw-configuration-director"></a>
+Just click on "Sync to director" to create the commands.
 
-![image_c](img/image_c.png)
+After that you can create your service-templates as usual.
 
-If there is any configurtion inside of icinga director describe it here
-
-![image_d](img/image_d.png)
+Don't forget to add "Run on Agent" if you want to execute the command on an agent node.

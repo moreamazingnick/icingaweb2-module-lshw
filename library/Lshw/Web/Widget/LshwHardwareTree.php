@@ -36,6 +36,9 @@ class LshwHardwareTree extends BaseHtmlElement
 
     public function __construct(string $json_string)
     {
+        if(strpos($json_string,"[") !== 0){
+            $json_string = '[' . $json_string .']';
+        }
         $this->data = json_decode($json_string);
     }
 
@@ -72,6 +75,7 @@ class LshwHardwareTree extends BaseHtmlElement
     protected function renderNodes($nodes, $level = 0)
     {
         $result = [];
+
         foreach ($nodes as $child) {
             $result[] = $this->renderNode($child, $level + 1);
         }
@@ -84,8 +88,14 @@ class LshwHardwareTree extends BaseHtmlElement
     }
 
     protected function renderDisk($device,$si){
-        $desc = $this->renderDevice($device);
-        $desc .= " / Size: ".$this->convertBytes($device->size,$si);
+        $desc="unknown";
+        if(isset($device->size)){
+            $desc = $this->renderDevice($device);
+            $desc .= " / Size: ".$this->convertBytes($device->size,$si);
+        }else{
+            $desc = $this->renderDevice($device);
+        }
+
         return $desc;
     }
     protected function renderNic($device){
