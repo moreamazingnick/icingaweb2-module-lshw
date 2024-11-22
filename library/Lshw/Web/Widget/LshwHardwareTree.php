@@ -100,7 +100,11 @@ class LshwHardwareTree extends BaseHtmlElement
     }
     protected function renderNic($device){
         $desc = $this->renderDevice($device);
-        $desc .= " / MAC: ".$device->serial;
+
+        if(isset($device->serial)){
+            $desc .= " / MAC: ".$device->serial;
+        }
+
         return $desc;
     }
 
