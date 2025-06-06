@@ -163,17 +163,17 @@ class LshwHardwareTree extends BaseHtmlElement
 
         if ($device->class === "disk" || $device->class === "volume") {
             $class = 'icon-database';
-            $li->add(new Link($this->renderDisk($device, true), '#', ['class' => $class,  "style"=>"padding-left: 1.5em"]));
+            $li->add(new Link($this->renderDisk($device, true), '#', ['class' => $class . " padding-left-1-5em"]));
         } elseif ($device->class === "network") {
             $class = 'icon-sitemap';
-            $li->add(new Link($this->renderNic($device), '#', ['class' => $class,  "style"=>"padding-left: 1.5em"]));
+            $li->add(new Link($this->renderNic($device), '#', ['class' => $class . " padding-left-1-5em"]));
         } elseif ($device->class === "processor") {
             $class = 'icon-doc-text';
-            $li->add(new Link($this->renderProcessor($device), '#', ['class' => $class,  "style"=>"padding-left: 1.5em"]));
+            $li->add(new Link($this->renderProcessor($device), '#', ['class' => $class . " padding-left-1-5em"]));
         } elseif ($device->class === "memory") {
-            $li->add(new Link($this->renderDisk($device,false), '#', ['class' => $class,  "style"=>"padding-left: 1.5em"]));
+            $li->add(new Link($this->renderDisk($device,false), '#', ['class' => $class . " padding-left-1-5em"]));
         } else {
-            $li->add(new Link($this->renderDevice($device), '#', ['class' => $class,  "style"=>"padding-left: 1.5em"]));
+            $li->add(new Link($this->renderDevice($device), '#', ['class' => $class . " padding-left-1-5em"]));
         }
 
         if ($hasChildren) {
