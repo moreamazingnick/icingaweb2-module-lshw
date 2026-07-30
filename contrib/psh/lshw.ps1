@@ -58,17 +58,22 @@ foreach ($mem in $memoryData) {
 };
 $mainboard.children.Add($memory) | Out-Null;
 
-$cpu = [PSCustomObject]@{
-    id            = "cpu";
-    class         = "processor";
-    vendor        = $cpuData.Manufacturer;
-    product       = $cpuData.Name;
-    configuration = [PSCustomObject]@{
-        cores   = $cpuData.NumberOfCores;
-        threads = $cpuData.NumberOfLogicalProcessors;
+$cpuIndex = 0;
+foreach ($processor in @($cpuData)) {
+    $cpu = [PSCustomObject]@{
+        id = "cpu:$cpuIndex";
+        class = "processor";
+        vendor = $processor.Manufacturer;
+        product = $processor.Name;
+        configuration = [PSCustomObject]@{
+            cores = $processor.NumberOfCores;
+            threads = $processor.NumberOfLogicalProcessors;
+        };
     };
+
+    $mainboard.children.Add($cpu) | Out-Null;
+    $cpuIndex++;
 };
-$mainboard.children.Add($cpu) | Out-Null;
 
 $scsiControllerDevices = Get-CimInstance Win32_SCSIControllerDevice;
 $controllerDisks       = New-Object System.Collections.ArrayList;
